@@ -16,7 +16,7 @@ Contributing to an open-source project is not just about writing code; it's abou
 ![calculatoe image](/image.png)
 This is the project I contributed to.
 
-After days of coding, testing, and refining, I finally had my enhanced UI for the calculator. The satisfaction of seeing my changes come to life was unparalleled. I submitted my contribution as a pull request and eagerly awaited feedback from the project maintainers and other contributors.
+After days of coding, testing, and refining(exaggerated), I finally had my enhanced UI for the calculator. The satisfaction of seeing my changes come to life was unparalleled. I submitted my contribution as a pull request and eagerly awaited feedback from the project maintainers and other contributors.
 
 One of the most rewarding aspects of open source is the sense of community and collaboration. The feedback I received on my pull request was constructive and encouraging. I engaged in discussions with other contributors, learned from their insights, and refined my code based on their suggestions. The feeling of being part of a global team working towards a common goal was invigorating.
 
