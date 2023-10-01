@@ -3,6 +3,20 @@ const today = new Date();
 ---
 
 <footer>
+  <form class="form">
+    <p class="loop">Stay in loop</p>
+    <div>
+      <p>Enter your name:</p>
+      <input class="input" type="text" required />
+    </div>
+    <div>
+      <p>Enter your email:</p>
+      <input class="input" type="email" required />
+    </div>
+    <div class="button-surrounder">
+      <button type="submit" class="submit">Enter</button>
+    </div>
+  </form>
   &copy; {today.getFullYear()} CodeRealm. All rights reserved.
   <div class="social-links">
     <a href="https://twitter.com/Pritam_1296" target="_blank">
@@ -55,4 +69,39 @@ const today = new Date();
   .social-links a:hover {
     color: rgb(var(--gray-dark));
   }
+  .input {
+    border: 0;
+    background-color: rgb(182, 198, 213);
+    border-radius: 5px;
+    height: 22px;
+  }
+  .input:focus {
+    outline: 0;
+  }
+  .submit {
+    padding: 10px;
+    border-radius: 10px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+    color: white;
+    border: 0;
+    background-color: blueviolet;
+  }
+  .form {
+    padding-bottom: 10px;
+  }
+  .button-surrounder {
+    padding: 15px;
+  }
+  .loop {
+    font-size: 50px;
+    font-weight: 700;
+  }
 </style>
+
+<script>
+  const submit = document.querySelector(".submit");
+  submit?.addEventListener("click", (e) => {});
+</script>
