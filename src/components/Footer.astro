@@ -7,11 +7,11 @@ const today = new Date();
     <p class="loop">Stay in loop</p>
     <div>
       <p>Enter your name:</p>
-      <input class="input" type="text" required />
+      <input class="input1" type="text" required placeholder="Your name..." />
     </div>
     <div>
       <p>Enter your email:</p>
-      <input class="input" type="email" required />
+      <input class="input2" type="email" required placeholder="Your mail..." />
     </div>
     <div class="button-surrounder">
       <button type="submit" class="submit">Enter</button>
@@ -69,14 +69,21 @@ const today = new Date();
   .social-links a:hover {
     color: rgb(var(--gray-dark));
   }
-  .input {
+  .input1,
+  .input2 {
     border: 0;
     background-color: rgb(182, 198, 213);
     border-radius: 5px;
     height: 22px;
   }
-  .input:focus {
+  .input1:focus,
+  .input2:focus {
     outline: 0;
+  }
+  .input1::placeholder,
+  .input2::placeholder {
+    color: blueviolet;
+    font-family: cursive;
   }
   .submit {
     padding: 10px;
@@ -102,6 +109,38 @@ const today = new Date();
 </style>
 
 <script>
-  const submit = document.querySelector(".submit");
-  submit?.addEventListener("click", (e) => {});
+  const submit = document.querySelector(".form");
+  submit?.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const input1Val = (document.querySelector(".input1") as HTMLInputElement)
+      ?.value;
+    const input2Val = (document.querySelector(".input2") as HTMLInputElement)
+      ?.value;
+
+    sendDataToDatabase(input1Val, input2Val);
+
+    (document.querySelector(".input1") as HTMLInputElement).value = "";
+    (document.querySelector(".input2") as HTMLInputElement).value = "";
+  });
+
+  const sendDataToDatabase = (value1: string, value2: string) => {
+    fetch("/database-endpoint", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({ feild1: value1, feild2: value2 }),
+    })
+      .then((res) => {
+        if (res.ok) {
+          console.log("Data send");
+        } else {
+          console.log("Error on sending data");
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
 </script>
