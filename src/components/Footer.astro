@@ -83,7 +83,7 @@ const today = new Date();
   .input1::placeholder,
   .input2::placeholder {
     color: blueviolet;
-    font-family: cursive;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   }
   .submit {
     padding: 10px;
@@ -109,14 +109,16 @@ const today = new Date();
 </style>
 
 <script>
-  const submit = document.querySelector(".form");
-  submit?.addEventListener("submit", (e) => {
+  const form = document.querySelector(".form") as HTMLFormElement;
+  const formButton = document.querySelector(".submit") as HTMLButtonElement;
+  const input1 = document.querySelector(".input1") as HTMLInputElement;
+  const input2 = document.querySelector(".input2") as HTMLInputElement;
+
+  form?.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const input1Val = (document.querySelector(".input1") as HTMLInputElement)
-      ?.value;
-    const input2Val = (document.querySelector(".input2") as HTMLInputElement)
-      ?.value;
+    const input1Val = input1?.value;
+    const input2Val = input2?.value;
 
     sendDataToDatabase(input1Val, input2Val);
 
@@ -143,4 +145,14 @@ const today = new Date();
         console.error(err);
       });
   };
+
+  formButton?.addEventListener("click", () => {
+    if (input1?.value != "" && input2?.value != "") {
+      formButton.innerText = "Done";
+
+      setTimeout(() => {
+        formButton.innerText = "Enter";
+      }, 2000);
+    }
+  });
 </script>
